@@ -1,0 +1,258 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+"""
+Direct the client to resolve this field locally, either from the cache or local resolvers.
+"""
+directive @client(
+  """
+  When true, the client will never use the cache for this value. See
+  https://www.apollographql.com/docs/react/essentials/local-state/#forcing-resolvers-with-clientalways-true
+  """
+  always: Boolean
+) on FIELD | FRAGMENT_DEFINITION | INLINE_FRAGMENT
+
+"""
+Export this locally resolved field as a variable to be used in the remainder of this query. See
+https://www.apollographql.com/docs/react/essentials/local-state/#using-client-fields-as-variables
+"""
+directive @export(
+  """The variable name to export this field as."""
+  as: String!
+) on FIELD
+
+"""
+Specify a custom store key for this result. See
+https://www.apollographql.com/docs/react/advanced/caching/#the-connection-directive
+"""
+directive @connection(
+  """Specify the store key."""
+  key: String!
+
+  """
+  An array of query argument names to include in the generated custom store key.
+  """
+  filter: [String!]
+) on FIELD
+
+type Category {
+  content: String
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type Counter {
+  group: String!
+  id: ID!
+  scope: CounterScope!
+  start: Float!
+  target: String!
+  value: Int!
+}
+
+enum CounterScope {
+  DAY
+  HOUR
+  MONTH
+  TOTAL
+  WEEK
+  YEAR
+}
+
+"""Sort theo value của counter, sort => value"""
+input CountersFilter {
+  """Ngày lấy dd/mm/yyyy. Bỏ trống sẽ lấy ngày hiện tại"""
+  day: String
+
+  """Nhóm counter"""
+  group: String
+  limit: Int!
+  offset: Int!
+  order: Int = -1
+
+  """Thời gian lấy"""
+  scope: CounterScope
+
+  """Sắp xếp của bình luận"""
+  sort: String!
+}
+
+input CountStoriesFilter {
+  authors: String
+  category: ID
+
+  """Filter by status"""
+  status: [StoryStatus!]
+  teams: [String!]
+  user: ID
+}
+
+input CreateCategoryInput {
+  content: String = ""
+  name: String!
+}
+
+input CreateStoryInput {
+  authors: String = ""
+  avatar: String!
+  category: [String!]!
+  content: String = ""
+  name: String!
+  status: StoryStatus = ON_GOING
+  tags: [String!] = []
+  teams: [String!] = []
+}
+
+input CreateTagInput {
+  content: String = ""
+  name: String!
+}
+
+input GetCategoriesFilter {
+  limit: Int!
+  offset: Int!
+  order: Int = -1
+
+  """Sắp xếp của bình luận"""
+  sort: String!
+}
+
+input GetStoriesFilter {
+  authors: String
+  category: ID
+
+  """Ngày lấy dd/mm/yyyy. Bỏ trống sẽ lấy ngày hiện tại"""
+  day: String
+
+  """Nhóm counter"""
+  group: String
+  limit: Int!
+  offset: Int!
+  order: Int = -1
+
+  """Thời gian lấy"""
+  scope: CounterScope
+
+  """Sắp xếp của bình luận"""
+  sort: String!
+
+  """Filter by status"""
+  status: [StoryStatus!]
+  teams: [String!]
+  user: ID
+}
+
+input GetTagsFilter {
+  limit: Int!
+  offset: Int!
+  order: Int = -1
+
+  """Sắp xếp của bình luận"""
+  sort: String!
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): Category!
+  createStory(input: CreateStoryInput!): Story!
+  createTag(input: CreateTagInput!): Tag!
+  updateCategory(input: UpdateCategoryInput!): Category!
+  updateStory(input: UpdateStoryInput!): Story!
+}
+
+type Query {
+  categories(filter: GetCategoriesFilter!): [Category!]!
+  category(category: String!): Category!
+  countStories(filter: CountStoriesFilter!): Int!
+
+  """
+  Filter counter by group, scope, day(optional - dùng để lấy rank ngày trước…)
+  """
+  counters(filter: CountersFilter!): [Counter!]!
+  me: User!
+  someStories(filter: SomeStoriesFilter!): [Story!]!
+  stories(filter: GetStoriesFilter!): [Story!]!
+  story(slug: String!): Story!
+  tags(filter: GetTagsFilter!): [Tag!]!
+  testUser: User!
+}
+
+enum Role {
+  ADMIN
+  AUTHOR
+  SP_ADMIN
+  USER
+}
+
+input SomeStoriesFilter {
+  authors: String
+  category: ID
+  size: Int!
+
+  """Filter by status"""
+  status: [StoryStatus!]
+  teams: [String!]
+  user: ID
+}
+
+type Story {
+  authors: String!
+  avatar: String!
+  category: Category!
+  content: String!
+  createdAt: Float!
+  id: ID!
+  name: String!
+  slug: String!
+  status: StoryStatus!
+  tags: [Tag!]!
+  teams: [String!]!
+  updatedAt: Float!
+  user: User!
+}
+
+enum StoryStatus {
+  DROP
+  END
+  ON_GOING
+}
+
+type Tag {
+  content: String
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+input UpdateCategoryInput {
+  content: String = ""
+  id: ID!
+  name: String
+}
+
+input UpdateStoryInput {
+  authors: String = ""
+  avatar: String
+  category: [String!]
+  content: String = ""
+  id: ID!
+  name: String
+  status: StoryStatus = ON_GOING
+  tags: [String!] = []
+  teams: [String!] = []
+}
+
+type User {
+  avatar: String
+  createdAt: Float!
+  id: ID!
+  name: String!
+  role: Role!
+  slug: String!
+
+  """Firebase ID"""
+  uid: String!
+}

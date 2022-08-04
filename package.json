@@ -1,0 +1,35 @@
+{
+  "name": "comico-web",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port=8001",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "apollo:codegen": "npx apollo codegen:generate --localSchemaFile=schema.graphql --target=typescript --tagName=gql --includes=./apollo/comico/**/*.ts --globalTypesFile=apollo/__generated__/comicoTypes.ts",
+    "apollo:download": "npx apollo client:download-schema --endpoint=http://localhost:3000/graphql schema.graphql"
+  },
+  "devDependencies": {
+    "@types/animejs": "^3.1.5",
+    "@vueuse/core": "^9.0.2",
+    "@vueuse/nuxt": "^9.0.2",
+    "nuxt": "3.0.0-rc.6",
+    "shelljs": "^0.8.5",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@nguyenshort/vue3-loading-indicator": "^0.0.7",
+    "@pinia/nuxt": "^0.3.1",
+    "@vue/apollo-composable": "^4.0.0-alpha.19",
+    "animejs": "^3.2.1",
+    "dayjs": "^1.11.4",
+    "firebase": "^9.9.1",
+    "firebase-admin": "^11.0.1",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^5.9.1",
+    "pinia": "^2.0.17",
+    "vue-gtag": "^2.0.1"
+  }
+}
