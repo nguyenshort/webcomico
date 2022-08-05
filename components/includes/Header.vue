@@ -1,9 +1,9 @@
 <template>
   <header class="g_header fs16 j_page_header pf t0 l0 w100% bc_fff" data-report-l1="99">
     <div class="g_wrap clearfix">
-      <a href="/" title="Webnovel" class="fl g_logo" data-report-eid="qi_A01">
+      <nuxt-link to="/" title="Webnovel" class="fl g_logo" data-report-eid="qi_A01">
         <img src="/images/logo.png" width="45" height="45" alt="Comico" />
-      </a>
+      </nuxt-link>
       <nav class="fl">
         <ol class="fs0 wsn">
           <li class="vam dib g_dropdown _hover g_browse">

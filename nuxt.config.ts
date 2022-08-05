@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
+import {NuxtPage} from "@nuxt/schema";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -122,6 +123,18 @@ export default defineNuxtConfig({
     },
     server: {
         port: 8001,
+    },
+    router: {
+        linkActiveClass: '_on'
+    },
+    hooks: {
+        'pages:extend'(pages: NuxtPage[]) {
+            pages.forEach((page) => {
+                if (page.name === 'story') {
+                    page.path = '/truyen/:slug'
+                }
+            })
+        }
     },
     vite: {}
 })

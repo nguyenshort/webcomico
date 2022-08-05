@@ -3,7 +3,9 @@
     <div class="g_hr pb12 mb16 g_wrap">
       <div class="clearfix">
         <a class="fr ml8 mt8 fw600 lh16 fs14 ttu c_primary ls0.2" href="/ranking/novel/all_time/power_rank?sourceType=0&amp;timeType=4&amp;signStatus=1" title="Ranking"> More </a>
-        <h3 class="fw700 lh32 fs24 ls0.15 ell">Ranking</h3>
+        <h3 class="fw700 lh32 fs24 ls0.15 ell">
+          Xếp Hạng Tháng
+        </h3>
       </div>
     </div>
     <input id="m7005Swtich5fffe3c7af867252d05d6904" type="checkbox" class="pa vh m-7005-switch" />

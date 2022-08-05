@@ -2,27 +2,17 @@
   <div class="g_row _8">
     <div class="g_col _5">
       <div id="blockId-5fffe4c2af867252d05d6907-0">
-        <div
-            data-report-l1="1"
-            data-report-ltype="C"
-            data-exposure-repeat=""
-            data-report-uiname="module"
-            data-report-blockid="6191338007df4516294c322e"
-            data-report-blocktype="7004"
-            data-report-blocktitle="Rising Fictions"
-            data-report-blockpos="5"
-            data-report-pos="0"
-        >
-          <div data-report-blockid="6191338007df4516294c322e" data-report-blocktype="7004" data-report-blocktitle="Rising Fictions" data-report-blockpos="5" data-report-l1="1">
-            <div class="mb12"><h3 class="fw700 lh32 fs24 ls0.15 ell">Rising Fictions</h3></div>
+        <div>
+          <div>
+            <div class="mb12">
+              <h3 class="fw700 lh32 fs24 ls0.15 ell">Có Thể Bạn Thích</h3>
+            </div>
             <div class="bc_light_default br4 bsbb pt20 pb20 pl20 pr20 j_block_7004_0" style="height: 288px;">
               <div class="wsn fs0 mb16 j_m_7004_0_nav">
                 <a
                     class="g_thumb _54 mr10 dib vat _on"
                     href="/book/max-level-great-swordsman-in-the-women's-world_20670508205576105"
                     title="Max-Level Great Swordsman in the Women's World"
-                    data-report-uiname="bookcover"
-                    data-report-did="20670508205576105"
                 >
                   <img
                       cross-origin="anonymous"
@@ -38,11 +28,8 @@
                     class="g_thumb _54 mr10 dib vat"
                     href="/book/i'd-like-to-change-my-reincarnation-subscription-please_20766362806785605"
                     title="I'd Like to Change My Reincarnation Subscription, Please"
-                    data-report-uiname="bookcover"
-                    data-report-did="20766362806785605"
                 >
                   <img
-                      cross-origin="anonymous"
                       data-original="//img.webnovel.com/bookcover/20766362806785605/150/150.jpg?coverUpdateTime=1627705234941&amp;imageMogr2/quality/80"
                       width="140"
                       height="186"
@@ -630,7 +617,9 @@
         >
           <div data-report-blockid="6191338007df4516294c322a" data-report-blocktype="7004" data-report-blocktitle="Cheering Reads" data-report-blockpos="5" data-report-l1="1">
             <div class="g_hr pb12 mb16 _scope">
-              <div class="clearfix"><h3 class="fw700 lh32 fs24 ls0.15 ell">Cheering Reads</h3></div>
+              <div class="clearfix">
+                <h3 class="fw700 lh32 fs24 ls0.15 ell">Đã Hoàn Thành</h3>
+              </div>
             </div>
             <ul class="_switch_target oh" style="margin-right: -30px; height: 270px;">
               <li class="mb24 fl mr20" style="width: 168px;" data-exposure-repeat="" data-report-uiname="bookcover">

@@ -3,29 +3,11 @@
     <div class="g_col _6">
       <div id="blockId-5fffe025615ee3431b0916b9-0">
         <div
-            data-report-l1="1"
-            data-exposure-report=""
-            data-exposure-repeat=""
-            data-report-uiname="module"
-            data-report-blockid="6000ff4caf867252d05d6b13"
-            data-report-blocktype="7006"
-            data-report-blocktitle=""
-            data-report-blockpos="2"
-            data-report-pos="0"
         >
           <a
               class="db m-1061 oh br4"
               href="https://www.webnovel.com/trailer"
               title=""
-              data-report-l1="1"
-              data-exposure-report=""
-              data-exposure-repeat=""
-              data-report-uiname="banner"
-              data-report-blockid="6000ff4caf867252d05d6b13"
-              data-report-blocktype="7006"
-              data-report-blocktitle=""
-              data-report-blockpos="2"
-              data-report-did="https://www.webnovel.com/trailer"
           >
             <img
                 cross-origin="anonymous"
@@ -44,19 +26,12 @@
     <div class="g_col _6">
       <div id="blockId-5fffe025615ee3431b0916b9-1">
         <div
-            data-report-l1="1"
-            data-exposure-report=""
-            data-exposure-repeat=""
-            data-report-uiname="module"
-            data-report-blockid="6013ebc2efbaab775677da3d"
-            data-report-blocktype="7006"
-            data-report-blocktitle="Limited Free For You"
-            data-report-blockpos="2"
-            data-report-pos="0"
         >
           <div data-report-l1="1" data-report-blockid="6013ebc2efbaab775677da3d" data-report-blocktype="7006" data-report-blocktitle="Limited Free For You" data-report-blockpos="2" data-report-pos="0">
             <div class="g_hr pb12 mb16 pr">
-              <h3 class="fw700 lh32 fs24 ls0.15 ell">Limited Free For You</h3>
+              <h3 class="fw700 lh32 fs24 ls0.15 ell">
+                Đang Cập Nhật
+              </h3>
               <div class="pa t0 r0 lh32 j_countDown_1062" data-expire-time="1659542423000">
                             <span class="m-countdown fs0 tac wsn dib">
                                 <strong class="fw700 lh16 fs14 ls0.1 dib c_l br4 mr4">00</strong> <em class="fw700 lh16 fs14 ls0.1 c_xs dib mr4">D</em> <strong class="fw700 lh16 fs14 ls0.1 dib c_l br4 mr4">02</strong>

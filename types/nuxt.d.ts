@@ -3,13 +3,15 @@ import {FirebaseApp} from "@firebase/app"
 import {Auth} from "@firebase/auth"
 import {ApolloClient} from "@apollo/client/core";
 
+type IApollo = {
+    apolloClient: ApolloClient<any>
+}
+
 interface ICustomContext {
     $anime: (params: anime.AnimeParams) => anime.AnimeInstance
     $firebaseApp: FirebaseApp
     $firebaseAuth: Auth
-    $apollo: {
-        apolloClient: ApolloClient<any>
-    }
+    $apollo: IApollo
 }
 
 declare module '#app' {

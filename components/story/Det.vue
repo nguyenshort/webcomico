@@ -1,43 +1,73 @@
 <template>
-  <div class="det-hd mb48" data-report-l1="1">
+  <div class="det-hd mb48">
     <div class="g_wrap">
+
       <p class="lh24 fs16 pt24 pb24 ell c_000">
         <a title="home" href="/" class="c_000 fl pt4 mr4">
-          <svg class="fl"><use xlink:href="#i-bread"></use></svg>
+          <svg class="fl">
+            <use xlink:href="#i-bread"></use>
+          </svg>
         </a>
-        <span>/</span> <a href="/stories/novel-eastern-male" class="c_000" title="Eastern Fantasy">Eastern Fantasy</a> <span>/</span> <span>Paragon of Sin</span>
+        <span>/</span>
+        <a href="/stories/novel-eastern-male" class="c_000" :title="story?.category.name">
+          {{ story.category.name }}
+        </a>
+        <span>/</span>
+        <span>
+          {{ story.name }}
+        </span>
       </p>
+
       <div class="det-info g_row c_000 fs16 pr">
         <div class="_sd g_col _4">
           <i class="g_thumb">
-            <img cross-origin="anonymous" src="//img.webnovel.com/bookcover/16856682305508105/150/150.jpg?coverUpdateTime=1595443848697&amp;imageMogr2/quality/80" alt="Paragon of Sin Book" title="Paragon of Sin Novel" />
-            <img cross-origin="anonymous" src="//img.webnovel.com/bookcover/16856682305508105/600/600.jpg?coverUpdateTime=1595443848697&amp;imageMogr2/quality/40" alt="Paragon of Sin Book" title="Paragon of Sin Novel" />
+            <img :src="story?.avatar" :alt="story?.name" :title="story?.name" />
             <strong class="pa t0 r0 z1">original</strong>
           </i>
         </div>
         <div class="_mn g_col _8 pr">
-          <h1 class="pt4 pb4 oh mb4 fs36 lh40 auto_height">Paragon of Sin <small>PoS</small></h1>
+          <h1 class="pt4 pb4 oh mb4 fs36 lh40 auto_height">
+            {{ story?.name }}
+            <small>
+              {{ shortName }}
+            </small>
+          </h1>
+
           <h2 class="mb12 lh24 det-hd-detail c_000 fs0">
-            <a title="Eastern Fantasy" data-report-eid="qi_C05" data-report-bid="16856682305508105" href="/stories/novel-eastern-male">
-              <svg><use xlink:href="#i-0"></use></svg> <span>Eastern Fantasy</span>
+            <a title="Eastern Fantasy">
+              <svg><use xlink:href="#i-0"></use></svg>
+              <span>{{ story?.category?.name }}</span>
             </a>
             <strong>
-              <svg><use xlink:href="#i-chapter"></use></svg> <span>947 Chapters</span>
+              <svg><use xlink:href="#i-chapter"></use></svg>
+              <span>947 Chapters</span>
             </strong>
             <strong>
-              <svg><use xlink:href="#i-eye"></use></svg> <span>4.8M Views</span>
+              <svg><use xlink:href="#i-eye"></use></svg>
+              <span>4.8M Views</span>
             </strong>
           </h2>
+
           <address class="lh20 mb24 pr">
-            <h2 class="ell dib vam fs16 fw500"><strong class="c_s">Author: </strong> <a class="c_primary" title="KevinAscending" href="/profile/3668440526?appId=10">KevinAscending</a></h2>
+            <h2 class="ell dib vam fs16 fw500">
+              <strong class="c_s">Tác giả: </strong>
+              <a class="c_primary" title="KevinAscending" href="/profile/3668440526?appId=10">
+                {{ story?.authors }}
+              </a>
+            </h2>
           </address>
           <p class="_score ell mb24 fs0">
-                    <span class="g_star">
-                        <svg class="_on"><use xlink:href="#i-star"></use></svg><svg class="_on"><use xlink:href="#i-star"></use></svg><svg class="_on"><use xlink:href="#i-star"></use></svg>
-                        <svg class="_on"><use xlink:href="#i-star"></use></svg><svg class="_half"><use xlink:href="#i-star"></use></svg>
-                    </span>
-            <strong class="vam fs24 mr8">4.71</strong> <small class="fs16 dib vam">(361 ratings)</small>
+            <span class="g_star">
+              <svg class="_on"><use xlink:href="#i-star"></use></svg>
+              <svg class="_on"><use xlink:href="#i-star"></use></svg>
+              <svg class="_on"><use xlink:href="#i-star"></use></svg>
+              <svg class="_on"><use xlink:href="#i-star"></use></svg>
+              <svg class="_half"><use xlink:href="#i-star"></use></svg>
+            </span>
+            <strong class="vam fs24 mr8">4.71</strong>
+            <small class="fs16 dib vam">(361 ratings)</small>
           </p>
+
           <span class="dib vat j_rank_tag mb16"></span>
           <div class="_ft pa l0 r0">
             <h2 class="_bts">
@@ -64,7 +94,20 @@
 
 </template>
 
-<script>
+<script lang="ts" setup>
+import {useStoryStore} from "~/store/story";
+import {computed} from "#imports";
+import {GetStory_story} from "~/apollo/comico/queries/__generated__/GetStory";
+
+const storyStore = useStoryStore()
+
+const story = computed<GetStory_story|undefined>(() => storyStore.story)
+
+const shortName = computed(() => story.value.name?.split(' ').filter(word => word.trim()).map(word => word[0]).join(''))
+
+</script>
+
+<script lang="ts">
 export default {
   name: "StoryDet"
 }

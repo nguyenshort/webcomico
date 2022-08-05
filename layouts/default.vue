@@ -2,7 +2,7 @@
   <div id="default">
     <includes-header />
     <div class="g_header_ph"></div>
-    <slot />
+    <NuxtPage />
     <includes-footer />
   </div>
 </template>
